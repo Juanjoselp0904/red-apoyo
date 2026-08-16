@@ -1,26 +1,102 @@
 @import "tailwindcss";
 
+/*
+  Paleta tomada del diseño "Red de Apoyo - Home". Azules claros y serenos,
+  tarjetas blancas sobre fondo azulado, sombras suaves y difusas.
+
+  El resto de la app consume estos tokens (bg-surface, text-muted, bg-ayuda…),
+  así que cambiar aquí cambia todas las pantallas.
+*/
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+
+  --background: #edf4fd;
+  --background-alto: #f4f9ff; /* arranque del degradado superior */
+  --surface: #ffffff;
+  --border: #e4eefb;
+  --border-fuerte: #dcebfb; /* campos de formulario */
+  --foreground: #1b355a;
+  --texto: #23405f;
+  --muted: #5b7791;
+  --tenue: #7d9ab5;
+
+  /* Azul de acción: botones principales y enlaces. */
+  --ayuda: #3d9cf5;
+  --ayuda-hover: #2b8ae6;
+  --ayuda-soft: #ffeee6; /* casilla del icono "necesito ayuda" */
+  --ayuda-icono: #e8825e;
+  --enlace: #2b7fd4;
+
+  /* Verde azulado del voluntariado. Oscurecido respecto al #57b8ac del
+     diseño para que el texto blanco encima siga siendo legible. */
+  --dar: #217a70;
+  --dar-soft: #e2f5f2;
+  --dar-icono: #57b8ac;
+
+  /* Coral de emergencia del diseño (#d4674a), un punto más oscuro para que
+     el texto pequeño de la franja del 123 pase contraste AA. */
+  --alerta: #c2502f;
+  --alerta-soft: #fff4f0;
+
+  --sombra-card: 0 14px 34px rgba(41, 98, 168, 0.08);
+  --sombra-card-alta: 0 22px 44px rgba(41, 98, 168, 0.16);
+  --sombra-hero: 0 18px 44px rgba(41, 98, 168, 0.08);
+  --sombra-boton: 0 10px 22px rgba(61, 156, 245, 0.32);
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-alto: var(--background-alto);
+  --color-surface: var(--surface);
+  --color-line: var(--border);
+  --color-line-fuerte: var(--border-fuerte);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-texto: var(--texto);
+  --color-muted: var(--muted);
+  --color-tenue: var(--tenue);
+  --color-ayuda: var(--ayuda);
+  --color-ayuda-hover: var(--ayuda-hover);
+  --color-ayuda-soft: var(--ayuda-soft);
+  --color-ayuda-icono: var(--ayuda-icono);
+  --color-enlace: var(--enlace);
+  --color-dar: var(--dar);
+  --color-dar-soft: var(--dar-soft);
+  --color-dar-icono: var(--dar-icono);
+  --color-alerta: var(--alerta);
+  --color-alerta-soft: var(--alerta-soft);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --shadow-card: var(--sombra-card);
+  --shadow-card-alta: var(--sombra-card-alta);
+  --shadow-hero: var(--sombra-hero);
+  --shadow-boton: var(--sombra-boton);
+
+  --font-sans: var(--font-sans-app);
+  --radius-card: 24px;
+  --radius-hero: 26px;
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--texto);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Objetivos táctiles grandes: se va a usar con las manos temblando. */
+input,
+select,
+textarea {
+  font-size: 17px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #a8bdd4;
+}
+
+:focus-visible {
+  outline: 3px solid var(--ayuda);
+  outline-offset: 2px;
 }

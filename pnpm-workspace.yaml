@@ -1,0 +1,4 @@
+# unrs-resolver trae un binario nativo que usa eslint-config-next. pnpm bloquea
+# los scripts de postinstall por defecto; hay que aprobarlo explícitamente.
+allowBuilds:
+  unrs-resolver: true
