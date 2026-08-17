@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 import { supabaseServer } from "@/lib/supabase/server";
 import { cambiarStatus, cerrarSesion } from "@/lib/actions/volunteers";
 import { mostrarWhatsapp } from "@/lib/whatsapp";
-import { LoginMagicLink } from "@/app/doy-ayuda/registro/LoginMagicLink";
+import { Login } from "@/app/components/Login";
 
 export const metadata = { title: "Administración — Red de Apoyo" };
 export const dynamic = "force-dynamic";
@@ -70,7 +70,7 @@ export default async function Admin() {
       <div className="mx-auto max-w-lg px-5 py-10">
         <h1 className="text-2xl font-bold">Administración</h1>
         <div className="mt-6">
-          <LoginMagicLink next="/admin" />
+          <Login next="/admin" />
         </div>
       </div>
     );

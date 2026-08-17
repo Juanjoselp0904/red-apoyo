@@ -38,6 +38,25 @@
   --alerta: #c2502f;
   --alerta-soft: #fff4f0;
 
+  /* Superficies y chips del panel de voluntarios. */
+  --surface-sutil: #f6faff;
+  --chip: #f2f7fd;
+  --chip-borde: #e2edf9;
+
+  /* Verde propio de WhatsApp, para que el botón se reconozca al instante. */
+  --wa: #1f8f6f;
+  --wa-hover: #197a5f;
+
+  /* Urgencia y emergencia: coral del sistema sobre su tinte. */
+  --urgente: #c25c3a;
+
+  /* Confirmación (verde agua) y piezas de la vista de solicitud. */
+  --ok: #3f9e90;
+  --ok-soft: #e2f5f2;
+  --separador: #eef5fc;
+  --codigo-bg: #f2f8ff;
+  --codigo-borde: #bfdcfa;
+
   --sombra-card: 0 14px 34px rgba(41, 98, 168, 0.08);
   --sombra-card-alta: 0 22px 44px rgba(41, 98, 168, 0.16);
   --sombra-hero: 0 18px 44px rgba(41, 98, 168, 0.08);
@@ -64,6 +83,20 @@
   --color-dar-icono: var(--dar-icono);
   --color-alerta: var(--alerta);
   --color-alerta-soft: var(--alerta-soft);
+  --color-surface-sutil: var(--surface-sutil);
+  --color-chip: var(--chip);
+  --color-chip-borde: var(--chip-borde);
+  --color-wa: var(--wa);
+  --color-wa-hover: var(--wa-hover);
+  --color-urgente: var(--urgente);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --color-separador: var(--separador);
+  --color-codigo-bg: var(--codigo-bg);
+  --color-codigo-borde: var(--codigo-borde);
+
+  --shadow-pill: 0 6px 16px rgba(41, 98, 168, 0.08);
+  --shadow-wa: 0 10px 22px rgba(31, 143, 111, 0.28);
 
   --shadow-card: var(--sombra-card);
   --shadow-card-alta: var(--sombra-card-alta);
