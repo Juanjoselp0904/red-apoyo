@@ -2,7 +2,6 @@ import { redirect } from "next/navigation";
 import { supabaseServer } from "@/lib/supabase/server";
 import { cambiarStatus, cerrarSesion } from "@/lib/actions/volunteers";
 import { mostrarWhatsapp } from "@/lib/whatsapp";
-import { Login } from "@/app/components/Login";
 
 export const metadata = { title: "Administración — Red de Apoyo" };
 export const dynamic = "force-dynamic";
@@ -65,16 +64,7 @@ export default async function Admin() {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (!user) {
-    return (
-      <div className="mx-auto max-w-lg px-5 py-10">
-        <h1 className="text-2xl font-bold">Administración</h1>
-        <div className="mt-6">
-          <Login next="/admin" />
-        </div>
-      </div>
-    );
-  }
+  if (!user) redirect("/entrar");
 
   const { data: esAdmin } = await supabase.rpc("is_admin");
   if (!esAdmin) redirect("/voluntario");

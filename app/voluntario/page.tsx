@@ -54,7 +54,7 @@ export default async function Voluntario() {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user) redirect("/doy-ayuda/registro");
+  if (!user) redirect("/entrar");
 
   const { data: perfil } = await supabase
     .from("volunteers")

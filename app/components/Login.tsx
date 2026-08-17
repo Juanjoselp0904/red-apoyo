@@ -27,19 +27,16 @@ function LogoGoogle() {
 }
 
 /**
- * Entrada de voluntarios y admin.
- *
- * El destino post-login viaja en cookie y no en la URL: la lista blanca de
- * Supabase compara la URL completa y un `?next=…` la haría no coincidir.
+ * Botón de entrada. Siempre vuelve a /entrar, que es quien resuelve el rol
+ * y despacha al panel correspondiente.
  */
-export function Login({ next = "/voluntario" }: { next?: string }) {
+export function Login() {
   const [conectando, setConectando] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   async function entrarConGoogle() {
     setConectando(true);
     setError(null);
-    document.cookie = `post_login_next=${encodeURIComponent(next)}; path=/; max-age=900; SameSite=Lax`;
 
     const { error } = await supabaseBrowser().auth.signInWithOAuth({
       provider: "google",

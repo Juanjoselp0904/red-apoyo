@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Manrope } from "next/font/google";
 import { SiteNav } from "./components/SiteNav";
+import { MenuUsuario } from "./components/MenuUsuario";
+import { getSesion } from "@/lib/auth";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -33,6 +35,39 @@ function Logo() {
   );
 }
 
+/**
+ * Acceso de voluntarios y equipo. Va deliberadamente discreto: quien busca
+ * ayuda no necesita cuenta y no debe leer esto como un requisito.
+ */
+async function BloqueSesion() {
+  const sesion = await getSesion();
+
+  if (!sesion.user) {
+    return (
+      <Link
+        href="/entrar"
+        className="rounded-full border-[1.5px] border-line-fuerte px-[18px] py-2 text-[15px] font-semibold whitespace-nowrap text-muted transition-colors hover:border-ayuda hover:text-foreground"
+      >
+        Entrar
+      </Link>
+    );
+  }
+
+  return (
+    <MenuUsuario
+      nombre={
+        sesion.voluntario?.nombre ??
+        sesion.user.user_metadata?.full_name ??
+        sesion.user.email ??
+        "Cuenta"
+      }
+      email={sesion.user.email ?? ""}
+      esAdmin={sesion.esAdmin}
+      tieneFicha={Boolean(sesion.voluntario)}
+    />
+  );
+}
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="es" className={`${manrope.variable} h-full antialiased`}>
@@ -41,6 +76,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <header className="mx-auto flex max-w-[1180px] flex-wrap items-center gap-x-7 gap-y-4 px-6 py-5">
             <Logo />
             <SiteNav />
+            <BloqueSesion />
           </header>
 
           <main>{children}</main>
