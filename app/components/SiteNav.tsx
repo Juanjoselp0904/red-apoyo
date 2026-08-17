@@ -13,7 +13,9 @@ export function SiteNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="flex flex-wrap items-center gap-x-[22px] gap-y-2 text-[15px] font-semibold">
+    // En móvil baja a su propia línea completa, para que el logo y el bloque
+    // de sesión se queden arriba y el menú de cuenta tenga borde derecho.
+    <nav className="order-last flex w-full flex-wrap items-center gap-x-[22px] gap-y-2 text-[15px] font-semibold sm:order-none sm:w-auto">
       {ENLACES.map(({ href, etiqueta }) => {
         const activo =
           href === "/" ? pathname === "/" : pathname.startsWith(href);

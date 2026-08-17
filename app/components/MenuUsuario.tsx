@@ -45,7 +45,7 @@ export function MenuUsuario({
     "block rounded-lg px-3 py-2.5 text-[15px] font-semibold text-texto transition-colors hover:bg-surface-sutil";
 
   return (
-    <div ref={contenedor} className="relative">
+    <div ref={contenedor} className="relative ml-auto sm:ml-0">
       <button
         ref={disparador}
         type="button"
@@ -76,7 +76,9 @@ export function MenuUsuario({
       {abierto && (
         <div
           role="menu"
-          className="absolute top-[calc(100%+8px)] right-0 z-50 w-[248px] rounded-2xl border border-line bg-surface p-2 shadow-[0_18px_44px_rgba(41,98,168,.16)]"
+          // El ancho se recorta al viewport para que nunca se salga por el
+          // borde izquierdo en pantallas angostas.
+          className="absolute top-[calc(100%+8px)] right-0 z-50 w-[248px] max-w-[calc(100vw-3rem)] rounded-2xl border border-line bg-surface p-2 shadow-[0_18px_44px_rgba(41,98,168,.16)]"
         >
           <div className="border-b border-separador px-3 pt-1.5 pb-3">
             <p className="truncate font-bold text-foreground">{nombre}</p>

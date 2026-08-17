@@ -46,7 +46,7 @@ async function BloqueSesion() {
     return (
       <Link
         href="/entrar"
-        className="rounded-full border-[1.5px] border-line-fuerte px-[18px] py-2 text-[15px] font-semibold whitespace-nowrap text-muted transition-colors hover:border-ayuda hover:text-foreground"
+        className="ml-auto rounded-full border-[1.5px] border-line-fuerte px-[18px] py-2 text-[15px] font-semibold whitespace-nowrap text-muted transition-colors hover:border-ayuda hover:text-foreground sm:ml-0"
       >
         Entrar
       </Link>
